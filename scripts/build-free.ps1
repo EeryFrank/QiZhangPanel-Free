@@ -39,5 +39,5 @@ if ($RuntimeArchive) { $packageArgs += @('--runtime-archive', $RuntimeArchive) }
 if ($LASTEXITCODE -ne 0) { throw 'Free portable package build failed.' }
 $zipPath = Join-Path $OutputDirectory "qizhang-panel-free-$Version-portable.zip"
 & (Join-Path $PSScriptRoot 'build-installer.ps1') -PackageZip $zipPath -OutputDirectory $OutputDirectory -Version $Version
-& $Python -B (Join-Path $PSScriptRoot 'release-checksums.py') --output $OutputDirectory
+& $Python -B (Join-Path $PSScriptRoot 'release-checksums.py') --output $OutputDirectory --version $Version
 if ($LASTEXITCODE -ne 0) { throw 'Release checksum generation failed.' }

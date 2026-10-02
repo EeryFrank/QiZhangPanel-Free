@@ -6,10 +6,13 @@
 
 ## 下载
 
-- [GitHub 安装包与便携包](https://github.com/EeryFrank/QiZhangPanel-Free/releases/latest)
-- [GitLab 安装包与便携包](https://gitlab.com/EeryFrank/QiZhangPanel-Free/-/releases)
+- [最新版安装包 · GitHub 直链](https://github.com/EeryFrank/QiZhangPanel-Free/releases/latest/download/qizhang-panel-free-setup.exe)
+- [最新版安装包 · GitLab 直链](https://gitlab.com/EeryFrank/QiZhangPanel-Free/-/releases/permalink/latest/downloads/qizhang-panel-free-setup.exe)
+- 便携包、历史版本与校验文件：[GitHub Release](https://github.com/EeryFrank/QiZhangPanel-Free/releases/latest) / [GitLab Release](https://gitlab.com/EeryFrank/QiZhangPanel-Free/-/releases)
 
 安装版可选择安装位置；便携版解压到可写目录后运行。Release 的 `SHA256SUMS.txt` 用于核对下载文件。使用源码时，请按 [构建说明](docs/BUILD.md) 自行构建。
+
+上面两条安装直链保持不变，随正式发行版本更新；固定文件名与带版本号的安装包内容一致。维护者每次发行都须上传固定文件名，具体见 [发布流程](docs/RELEASING.md)。
 
 ## 功能
 

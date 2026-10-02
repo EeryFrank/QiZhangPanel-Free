@@ -16,6 +16,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-free.ps1 `
 
 构建入口固定生成免费版，不需要选择产品档位。`-RuntimeArchive` 可指定已有的 Python 嵌入式运行时 ZIP，脚本仍会检查固定 SHA-256；省略时按脚本中的官方地址下载。缓存目录与产物目录均可自定义，源码不依赖开发者电脑上的磁盘路径。
 
+每次发行使用独立的空产物目录。构建完成后同时保留带版本号的安装 EXE、便携 ZIP、固定名称 `qizhang-panel-free-setup.exe` 和 `SHA256SUMS.txt`。固定名称是同一安装包的逐字节副本，校验清单包含两份 EXE 及便携 ZIP；遇到不同内容的已有别名或其他版本产物时会拒绝混用目录。
+
+已有构建产物可使用 `python -B scripts/release-checksums.py --output <产物目录> --version <X.Y.Z>` 补齐别名及本地校验清单。此操作不上传文件、不创建 Release。已经发布的版本文件和校验清单不得通过重新构建来替换，具体步骤见 [发布流程](RELEASING.md)。
+
 Java 命令桥接工具从仓库源码构建，目标兼容 Java 8 字节码；JDK 是构建工具，服务端实际运行版本仍由其核心决定。不要把旧构建 JAR 当作源码的替代。
 
 ## 验证
