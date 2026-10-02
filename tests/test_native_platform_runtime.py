@@ -27,7 +27,9 @@ class PlatformRuntimeTests(unittest.TestCase):
         base.mkdir(parents=True, exist_ok=True)
         self.temp = tempfile.TemporaryDirectory(dir=base)
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name) / 'server'
+        # Hosted Windows runners may expose TEMP through an 8.3 alias.
+        # Match the runtime's canonical path without changing Unicode fixtures.
+        self.root = Path(self.temp.name).resolve() / 'server'
         self.root.mkdir()
 
     def manager(self, platform='bedrock'):

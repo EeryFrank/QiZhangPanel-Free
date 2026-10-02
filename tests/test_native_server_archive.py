@@ -36,7 +36,9 @@ class ArchiveTests(unittest.TestCase):
         base.mkdir(exist_ok=True, parents=True)
         self.temp = tempfile.TemporaryDirectory(dir=base)
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        # Keep mocked file identities in the same canonical form as the importer,
+        # including Windows TEMP paths expressed with an 8.3 parent alias.
+        self.root = Path(self.temp.name).resolve()
         self.patch = patch("native_server_install.inspect_java", return_value={"path": r"D:\Java\jdk-21\bin\java.exe", "major": 21, "bits": 64, "version": "21.0.8"})
         self.patch.start()
         self.addCleanup(self.patch.stop)
