@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Agent-Class: QiZhangBukkitCommandAgentV3
+Can-Redefine-Classes: false
+Can-Retransform-Classes: false
+Implementation-Title: QiZhang Server Command Queue Agent
+Implementation-Version: 3
+Implementation-Vendor: EeryFrank https://github.com/EeryFrank
